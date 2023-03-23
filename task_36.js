@@ -1,6 +1,6 @@
 var array=[1,2,3,4,5];
 function empty(arr){
     arr.length=0;
-    console.log(arr);
+    return arr;
 }
-empty(array);
+console.log(empty(array));
