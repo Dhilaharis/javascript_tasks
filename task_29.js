@@ -1,3 +1,3 @@
-arr=["hello","karka","javascript"];
+let arr=["hello","karka","javascript"];
 arr.sort();
 console.log(arr);
