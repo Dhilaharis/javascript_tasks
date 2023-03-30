@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="number" id="fn_input" placeholder="Enter input 1"/><br>
+    <input type="number" id="sn_input" placeholder="Enter input 2"/><br>
+    <input type="text" id="ar_input" placeholder="Enter input 3"/><br>
+    <button onclick="arithmeticOperation()">submit</button>
+</body>
+<script>
+    function arithmeticOperation(){
+        let input1=Number(document.getElementById('fn_input').value);
+        let input2=Number(document.getElementById('sn_input').value);
+        let input3=(document.getElementById('ar_input').value);
+        if(input3=='+'){
+            console.log(input1+input2);
+        }
+        else if(input3=='-'){
+            console.log(input1-input2);
+        }
+        else if(input3=='*'){
+            console.log(input1*input2)
+        }else {
+            console.log("invalid")
+        }
+        
+    }
+</script>
+</html>

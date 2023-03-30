@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <label>Name:</label>
+    <input type="text" id="name" placeholder="Enter your name"/><br>
+
+    <label>Gender:</label>
+    <select id="gen_der">
+        <option>Male</option>
+        <option>Female</option>
+    </select><br>
+    <label>Skills:</label><br>
+    <input type="checkbox"  name="skills" value="JS"/>JS<br>
+    <input type="checkbox"  name="skills" value="HTML"/>HTML<br>
+    <input type="checkbox"  name="skills" value="CSS"/>CSS<br>
+
+    <label>Maritalstatus</label><br>
+    <input type="radio" name="rad" value="married">Married<br>
+    <input type="radio" name="rad" value="notmarried">notmarried<br>
+     <button onclick="veriFication()">submit</button>
+</body>
+<script>
+    let history=[];
+    function veriFication(){
+        let name=document.getElementById('name').value;
+        let gen=document.getElementById('gen_der').value;
+        let askill=[];
+        let skl=document.getElementsByName('skills');
+        for(i=0;i<skl.length;i++){
+            if(skl[i].checked){
+                askill.push(skl[i].value);
+            }
+        }
+        
+        let mar=document.getElementsByName('rad');
+        
+        for ( i=0;i<mar.length;i++){
+            if(mar[i].checked){
+              var maritalstatus=mar[i].value;
+            }
+        }
+        
+        let  obj={
+            name:name,
+            gender:gen,
+            skills:askill,
+            maritalstatus:maritalstatus
+        }
+        
+         history.push(obj);
+         console.log(history);
+    }
+</script>
+</html>
