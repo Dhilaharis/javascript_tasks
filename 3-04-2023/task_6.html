@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <label>Hobbies:</label>
+    <input type="text" id="hobbie"/>
+    <p id="para"></p>
+    <button onclick="addHobb()">submit</button>
+</body>
+<script>
+    function addHobb(){
+        let Hobbies=[];
+        let input=document.getElementById('hobbie').value;
+        Hobbies.push(input);
+
+        para.innerHTML=Hobbies;
+    }
+</script>
+</html>

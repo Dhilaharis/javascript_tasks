@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <label>Number:</label>
+    <input type="text" id="num"/>
+    <button onclick="greaTer()">submit</button>
+    <p id="para"></p>
+</body>
+<script>
+    
+    function greaTer(){
+        let number=[];
+        let input=document.getElementById('num').value;
+        num1=input.split(',');
+        for (i=0;i<num1.length;i++){
+            if(num1[i]>=18){
+            number.push(num1[i]);
+    }
+        }
+        
+        para.innerHTML=number;
+
+    }
+</script>
+</html>
