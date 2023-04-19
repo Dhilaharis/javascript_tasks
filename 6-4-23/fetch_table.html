@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>JS Bin</title>
+  
+</head>
+<body>
+  
+  <table border=2 id='table'>
+    <thead>
+      <tr>
+        <th>userid</th>
+        <th>id</th>
+        <th>title</th>
+        <th>body</th>
+        
+       </tr>
+    </thead>
+    
+    <tbody id='bname'>
+     
+      
+      
+      
+    </tbody>
+    
+  </table>  
+</body>
+  <script>
+    var storename=document.getElementById('bname');
+    var table=document.getElementById('table')
+    fetch("https://Jsonplaceholder.typicode.com/posts").then((response)=>(response.json()).then((res)=>{
+    
+    for(i=0;i<res.length;i++){
+      var resu=res[i]
+    
+    row=document.createElement('tr')
+    
+    let userid=document.createElement('td')
+    userid.textContent=resu.userid
+    row.appendChild(userid)
+    let id =document.createElement('td')
+    id.textContent=resu.id
+    row.appendChild(id)
+    let title=document.createElement('td')
+    title.textContent=resu.title
+    row.appendChild(title)
+    let body=document.createElement('td')
+    body.textContent=resu.body
+    row.appendChild(body)
+    
+    table.appendChild(row)
+    }
+    }))
+    
+</script>  
+    
+  
+</html>

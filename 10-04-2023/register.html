@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- <link rel="stylesheet"; href="style.css"/> -->
+    <style>
+        /* h1{
+            margin:20px;
+        } */
+        input{
+            background-color:lightgrey;
+        }
+        p{
+            color:red;
+            border:2px solid black;
+            padding:10px 8px 5px 8px;
+        }
+        body{
+            background-color:lightblue;
+            border:4px solid black;
+            margin:20px 25px ;
+            padding:50px;
+        }
+    </style>
+    
+</head>
+<body>
+    <div class="one">
+    <h1>Registration Form</h1>
+    <form id="form">
+	<label for="name">Name:</label>
+	<input type="text" id="name"  ><br><br>
+	
+	<label for="email">Email:</label>
+	<input type="email" id="email" ><br><br>
+	
+	<label for="password">Password:</label>
+	<input type="password" id="password" ><br><br>
+    <!-- <input type="reset" value="Reset"> -->
+	</div>
+    <div class="two">
+    <label>Phonenumber:</label><input type="text" id ="phonenumber"  placeholder="Enter your number"/><br><br>
+     
+    <label>Gender:</label>
+    <select id="gender" >
+        <option>Male</option>
+        <option>Female</option>
+    </select><br><br>
+    <label>Skills:</label><br>
+    <input type="checkbox"  name="skills" value="JS"/>JS<br>
+    <input type="checkbox"  name="skills" value="HTML"/>HTML<br>
+    <input type="checkbox"  name="skills" value="CSS"/>CSS<br>
+    </form><br>
+    <label>Info:</label>
+    <p> The dog is a domesticated descendant of the wolf. Also called the domestic dog, it is derived from the extinct Pleistocene wolf, and the modern wolf is the dog's nearest living relative. Dogs were the first species to be domesticated by hunter-gatherers over 15,000 years ago before the development of agriculture.</p>
+	<button onclick="submitForm()">Submit</button>
+	
+	<br><br>
+	
+	<table border="1" id="table">
+		<tr>
+			<th>Name</th>
+			<th>Email</th>
+			<th>Password</th>
+            <th>Phonenumber</th>
+            <th>Gender</th>
+            <th>Skill</th>
+			<th>Edit</th>
+			<th>Delete</th>
+		</tr>
+	</table>
+</div>
+</body>
+    
+<script>
+    var selectedRow = null;
+    
+    function submitForm() {
+        // event.preventDefault();
+        var name = document.getElementById("name").value;
+        var email = document.getElementById("email").value;
+        var password = document.getElementById("password").value;
+        var phonenumber=document.getElementById('phonenumber').value; 
+        var gender=document.getElementById('gender').value;
+        var askill=document.getElementsByName('skills');
+        var skill=[]
+        for(i=0;i<askill.length;i++){
+            if(askill[i].checked){
+                skill.push(askill[i].value);
+            }
+        }
+        if (selectedRow == null) {
+            addRow(name, email, password,phonenumber,gender,skill);
+        } else {
+            editRow(name, email, password,phonenumber,gender,skill);
+        }
+        
+        clearForm();
+        
+    }
+    
+    function addRow(name, email, password,phonenumber,gender,skills) {
+        var table = document.getElementById("table");
+        var row = table.insertRow();
+        var nameCell = row.insertCell(0);
+        var emailCell = row.insertCell(1);
+        var passwordCell = row.insertCell(2);
+        var phonenumberCell=row.insertCell(3);
+        var genderCell=row.insertCell(4);
+        var skillCell=row.insertCell(5);
+        var editCell = row.insertCell(6);
+        var deleteCell = row.insertCell(7);
+        nameCell.innerHTML = name;
+        emailCell.innerHTML = email;
+        passwordCell.innerHTML = password;
+        phonenumberCell.innerHTML=phonenumber;
+        genderCell.innerHTML=gender;
+        skillCell.innerHTML=skills;
+        editCell.innerHTML = '<button onclick="editRowFromTable(this)">Edit</button>';
+        deleteCell.innerHTML = '<button onclick="deleteRowFromTable(this)">Delete</button>';
+    }
+    
+    function editRow(name, email, password,phonenumber,gender,skill) {
+        selectedRow.cells[0].innerHTML = name;
+        selectedRow.cells[1].innerHTML = email;
+        selectedRow.cells[2].innerHTML = password;
+        selectedRow.cells[3].innerHTML = phonenumber;
+        selectedRow.cells[4].innerHTML = gender;
+        selectedRow.cells[5].innerHTML = skill;
+        selectedRow = null;
+    }
+    
+    function clearForm() {
+        form.reset();
+        //name.innerHTML= "";
+
+    //     document.getElementById("name").value = "";
+    //     document.getElementById("email").value = "";
+    //     document.getElementById("password").value = "";
+    //     document.getElementById("phonenumber").value = "";
+    //     document.getElementById("gender").value = "";
+    //     document.getElementByName("skills").value = "";
+     }
+    
+    function editRowFromTable(button) {
+        console.log("data",button.parentNode.parentNode)
+        selectedRow = button.parentNode.parentNode;
+        document.getElementById("name").value = selectedRow.cells[0].innerHTML;
+        document.getElementById("email").value = selectedRow.cells[1].innerHTML;
+        document.getElementById("password").value = selectedRow.cells[2].innerHTML;
+        document.getElementById("phonenumber").value = selectedRow.cells[3].innerHTML;
+        document.getElementById("gender").value = selectedRow.cells[4].innerHTML;
+        
+        let allskill=document.getElementsByName("skills"); 
+        let checkskill=selectedRow.cells[5].innerHTML;
+        //let splitskill=checkskill.split(',');
+        allskill.forEach((element)=>{
+            if(checkskill.includes(element.value)){
+                element.checked=true
+        }else{
+            element.checked=false
+        }
+    });
+
+
+    }
+    
+    function deleteRowFromTable(button) {
+        // console.log("data",button)
+         var row = button.parentNode.parentNode;
+        // row.parentNode.removeChild(row);
+        row.remove();
+    }
+</script>
+</html>

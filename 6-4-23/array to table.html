@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>JS Bin</title>
+  
+</head>
+<body>
+  
+  <table border=2 id='table'>
+    <thead>
+      <tr>
+        <th>name</th>
+        <th>age</th>
+        <th>city</th>
+        
+       </tr>
+    </thead>
+    
+    <tbody id='bname'>
+     
+      
+      
+      
+    </tbody>
+    
+  </table>  
+</body>
+  <script>
+    var storename=document.getElementById('bname');
+    var table=document.getElementById('table');
+    let person=[{
+      name:'haris',
+      age:22,
+      city:'kottar'
+    },
+            {
+              name:'joel',
+              age:24,
+              city:'nagercoil'}];
+    
+    for(i=0;i<person.length;i++){
+      var pers=person[i]
+    
+    row=document.createElement('tr')
+    
+    let name=document.createElement('td')
+    name.textContent=pers.name
+    row.appendChild(name)
+    let age=document.createElement('td')
+    age.textContent=pers.age
+    row.appendChild(age)
+    let city=document.createElement('td')
+    city.textContent=pers.city
+    row.appendChild(city)
+    
+    table.appendChild(row)
+    }
+    
+    
+    
+    
+    
+    
+  </script>  
+    
+  
+  </html>
