@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <span id='hr' >00</span>
+        <span>Hr</span>
+        <span id="min">00</span>
+        <span>Min</span>
+        <span id="sec">00</span>
+        <span>Sec</span>
+        <span id="ms">00</span>
+        <span>Ms</span>
+    </div>
+    <button onclick="start()" id="start">Start</button>
+    <button onclick="stop()" id="stop">Stop</button>
+    <button onclick="reset()" id="reset">Reset</button>
+</body>
+<script>
+    
+
+    var hr=document.getElementById("hr");
+    var min=document.getElementById("min");
+    var sec=document.getElementById("sec");
+    var ms=document.getElementById("ms");
+    // var start=document.getElementById('start')
+    // var stop=document.getElementById('stop')
+    // var reset=document.getElementById('reset')
+    
+    var hour=0;
+    var min=0;
+    var sec=0;
+    var ms=0;
+    var deftime;
+    function stopWatch(){
+        if (deftime){
+            ms++
+            if(ms==100){
+                sec++
+                ms=0}
+                if(sec==60){
+                    min++
+                    sec=0}
+                    if(min==60){
+                        hour++
+                        min=0}
+        var hrtime=hour
+        var mintime=min
+        var sectime=sec
+        var mstime=ms
+        hrtime=(hour<10)?"0"+hrtime:hrtime
+        mintime=(min<10)?"0"+mintime:mintime
+        sectime=(sec<10)?"0"+sectime:sectime
+        mstime=(ms<10)?"0"+mstime:mstime
+        document.getElementById("hr").innerHTML=hrtime;
+        document.getElementById("min").innerHTML=mintime;
+        document.getElementById("sec").innerHTML=sectime;
+        document.getElementById("ms").innerHTML=mstime;
+        setTimeout(stopWatch,10)
+            }
+
+        }
+        function start(){
+        deftime=true
+        stopWatch()
+        }
+        function stop(){
+            deftime=false
+        }
+        function reset(){
+            hour=0
+            min=0
+            sec=0
+            ms=0
+        document.getElementById("hr").innerHTML="00"
+        document.getElementById("min").innerHTML="00"
+        document.getElementById("sec").innerHTML="00"
+        document.getElementById("ms").innerHTML="00"
+        }
+        // start.addEventListener('click',start)
+        // stop.addEventListener('click',stop)
+        // reset.addEventListener('click',reset)
+    
+</script>
+</html>

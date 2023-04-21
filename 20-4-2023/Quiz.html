@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        h1{
+            display:flex;
+            justify-content: center;
+        }
+        body{
+            background-color: bisque;
+        }
+    </style>
+</head>
+<body >
+    <form id="form"> 
+    
+     
+    <h1>Quiz</h1>
+    <h3>1.Who invented the Ballpoint pen?</h3>
+    <input type="radio" value="BiroBrothers" name='q1'>BiroBrothers</input><br>
+    <input type="radio" value="WatermanBrothers"name='q1'>watermanBrothers</input><br>
+    <input type="radio" value=" BiccBrothers" name='q1'>BiccBrothers</input><br>
+    <p id="para1"></p>
+    <h3>2.Which batsman started his international cricketing career at the age of 16?</h3>
+    <input type="radio" value="Sachin" name="q2">Sachin</input><br>
+    <input type="radio" value="Dhoni" name="q2">Dhoni</input><br>
+    <input type="radio" value="Virat" name="q2">Virat</input><br>
+    <p id="para2"></p>
+    <h3>3.Which is the biggest continent in the world?</h3>
+    <input type="radio" value="North America" name="q3">North America</input><br>
+    <input type="radio" value="Asia" name="q3">Asia</input><br>
+    <input type="radio" value="Africa" name="q3">Africa</input><br>
+    <p id="para3"></p>
+    <h3>4.Which is longest river in the world?</h3>
+    <input type="radio" value="Nile" name="q4">Nile</input><br>
+    <input type="radio" value="Amazon" name="q4">Amazon</input><br>
+    <input type="radio" value="Great Ganga" name="q4">Great Ganga</input><br><br>
+    <p id="para4"></p><br>
+    <p id="para5"></p>
+</form>
+    <div style="display:flex;justify-content:center"id="bt"><button  onclick="submit()">Submit</button>
+        <button type="button"  onclick="clearf()">Clear</button>
+    </div>
+    
+
+</body>
+<script>
+    function clearf(){
+        form.reset()
+        document.getElementById('para1').innerHTML="";
+        document.getElementById('para2').innerHTML="";
+        document.getElementById('para3').innerHTML="";
+        document.getElementById('para4').innerHTML="";
+        document.getElementById('para5').innerHTML="";
+    }
+    
+    function submit(){
+        //event.preventDefault();
+
+        var count=0;
+        var a1=document.getElementsByName('q1');
+        var a2=document.getElementsByName('q2');
+        var a3=document.getElementsByName('q3');
+        var a4=document.getElementsByName('q4');
+        
+        
+        for (let i=0;i<a1.length;i++){
+            if (a1[i].checked){
+                res1=a1[i].value;
+                if(res1=="BiroBrothers"){
+                    document.getElementById('para1').innerHTML="wow!,correct Answer";
+                    count++;
+
+                }
+                else {
+                    document.getElementById("para1").innerHTML="Oh,Wrong Answer"
+                }
+            }
+        }
+        for (let i=0;i<a2.length;i++){
+            if (a2[i].checked){
+                res1=a2[i].value;
+                if(res1=="Sachin"){
+                    document.getElementById('para2').innerHTML="WOW!,correct Answer";
+                    count++;
+                }
+                else {
+                    document.getElementById("para2").innerHTML="Oh,Wrong Answer"
+                }
+            }
+        }
+        for (let i=0;i<a3.length;i++){
+        if (a3[i].checked){
+                res1=a3[i].value;
+                if(res1=="Asia"){
+                    document.getElementById('para3').innerHTML="WOW!,correct Answer";
+                    count++;
+                }
+                else {
+                    document.getElementById("para3").innerHTML="Oh,Wrong Answer"
+                }
+            }
+        }
+        for (let i=0;i<a4.length;i++){
+        if (a4[i].checked){
+                res1=a4[i].value;
+                if(res1=="Nile"){
+                    document.getElementById('para4').innerHTML="WOW,correct Answer";
+                    count++;
+                }
+                else {
+                    document.getElementById("para4").innerHTML="Oh,Wrong Answer"
+                }
+            } 
+        }
+        document.getElementById("para5").innerHTML="your score="+count;
+       
+    }
+    
+</script>
+</html>
