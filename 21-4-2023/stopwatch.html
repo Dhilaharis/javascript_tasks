@@ -5,9 +5,25 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        #full{
+            border:8px solid black;
+            margin:200px 0px 400px 700px;
+            width: 400px;
+            height: 300px;
+            /* padding: 100px; */
+            
+            text-align: center;
+            font-size: 20px;
+            background-color:lightcoral ;
+        }
+        
+    </style>
 </head>
 <body>
-    <div>
+    <div id="full">
+    <div id="content">
+        <h1>Stop Watch</h1>
         <span id='hr' >00</span>
         <span>Hr</span>
         <span id="min">00</span>
@@ -17,9 +33,10 @@
         <span id="ms">00</span>
         <span>Ms</span>
     </div>
-    <button onclick="start()" id="start">Start</button>
-    <button onclick="stop()" id="stop">Stop</button>
-    <button onclick="reset()" id="reset">Reset</button>
+    <button onclick="start()" id="start" style="background-color: green;">Start</button>
+    <button onclick="stop()" id="stop" style="background-color: red;">Stop</button>
+    <button onclick="reset()" id="reset" style="background-color:yellow">Reset</button>
+</div>
 </body>
 <script>
     
