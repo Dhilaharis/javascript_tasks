@@ -1,0 +1,642 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #adlog {
+            background-color: lightcyan;
+            border: 4px solid black;
+            width: 400px;
+            height: 300px;
+            text-align: center;
+            margin: 100px 0px 100px 700px;
+        }
+
+        #uslog {
+            /* display: block; */
+            background-color: lightcyan;
+            border: 4px solid black;
+            width: 400px;
+            height: 300px;
+            text-align: center;
+            margin: 100px 0px 100px 700px;
+        }
+
+        #createus {
+            display: flex;flex-direction: column;
+            background-color: lightcyan;
+            border: 4px solid black;
+            width: 400px;
+            height: 500px;
+            text-align: center;
+
+            margin: 100px 0px 100px 700px;
+            padding:100px;
+        }
+        #crbooth{
+            background-color: lightcyan;
+            border: 4px solid black;
+            width: 400px;
+            height: 200px;
+            text-align: center;
+
+            margin: 100px 0px 100px 700px;
+            /* padding:100px; */
+        }
+        #crparties{
+            background-color: lightcyan;
+            border: 4px solid black;
+            width: 400px;
+            height: 200px;
+            text-align: center;
+
+            margin: 100px 0px 100px 700px;
+        }
+
+        #crelec{
+            background-color: lightcyan;
+            border: 4px solid black;
+            width: 400px;
+            height: 200px;
+            text-align: center;
+
+            margin: 100px 0px 100px 700px;
+        }
+        #but {
+            /* display: none; */
+            background-color: lightcyan;
+            border: 4px solid black;
+            width: 400px;
+            height: 300px;
+            text-align: center;
+            margin: 100px 0px 100px 700px;
+        }
+
+        
+
+        #rt {
+            position: fixed;
+            background-color: lightcyan;
+            border: 4px solid black;
+            width: 400px;
+            height: 200px;
+            text-align: center;
+            align-content: center;
+            /* margin: 100px 0px 100px 10px; */
+            top: 100px;
+            right: 50px;
+            
+            padding-top: 50px;
+        }
+    </style>
+</head>
+
+<body>
+    <p id="YES"></p>
+    <div id="adlog">
+        <h1>Admin Login</h1>
+        <label>ID:</label>
+        <input type="text" id="adid" placeholder="please enter your id" /><br><br>
+        <label>Password:</label>
+        <input type="text" id="adpass" /><br><br>
+
+        <button onclick="adLogin()">submit</button>
+    </div>
+
+    <div id="createus">
+        <!-- <h1>Create user</h1>
+        <label>UserId:</label>
+        <input type="text" id="usid" /><br><br>
+        <label>Password:</label> 
+        <input type="text" id="uspd" /><br><br>
+        <label>Booth</label>
+        <select id="usbt">
+
+        </select><br>
+        <button onclick="regisUser()">submit</button>  -->
+    </div>
+
+    <div id="crbooth">
+        <h1>Create booth:</h1>
+        <label>booth:</label>
+        <input type="text" id="bt" /><br>
+        <button onclick="addbooth()">add</button>
+    </div>
+
+    <div id="crparties">
+        <h1>Create Parties:</h1>
+        <label>Parties:</label>
+        <input type="text" id="par" /><br>
+        <button onclick="addparties()">add</button>
+
+    </div>
+    <div id="crelec">
+        <!-- <h1>Create Election</h1>
+        <label>Election date:</label>
+        <date  -->
+    </div>
+
+    <div id="uslog">
+        <h1>User Login</h1>
+        <label>Pan no:</label>
+        <input type="text" id="panid" placeholder="Please enter your pan no" /><br><br>
+        <label>Password:</label>
+        <input type="text" id="pass" />
+        <p id="para" style="color:red"></p>
+        <p id="para1" style="color:red"></p>
+        <button onclick="userLogin()">submit</button>
+    </div>
+
+    <div id="but">
+        <!-- <form id="form1">
+            <h1></h1>
+            <input type="radio" name="k1" value="DMK">DMK</input><br><br>
+            <input type="radio" name="k1" value="ADMK">ADMK</input><br><br>
+            <input type="radio" name="k1" value="BJP">BJP</input><br><br>
+        </form>
+        <button onclick="elecFun1()">submit</button> -->
+    </div>
+   
+
+    <div id="rt">
+        <p id="res1"></p>
+        <p id="res2"></p>
+        <p id="res3"></p>
+    </div>
+    <p id="para5"></p>
+
+
+
+
+</body>
+<script>
+    var arr = [];
+    var arr2 = []
+    var arr3 = []
+   
+    var adlogdiv = document.getElementById('adlog');
+    var createusdiv = document.getElementById('createus');
+    var uslogdiv = document.getElementById('uslog');
+    var bt1 = document.getElementById('bt1');
+    var bt2 = document.getElementById('bt2');
+    var bt3 = document.getElementById('bt3');
+    var brk = document.createElement('br')
+    // var today=null;
+    // var day=null;
+    // var month=null;
+    // var year=null;
+    // var hour=null;
+    // var minute=null;
+
+    function adLogin() {
+        var adminid = document.getElementById('adid').value;
+        var adpassword = document.getElementById('adpass').value;
+        var createdid = {
+            ad: "admin123",
+            apass: "ad123",
+        };
+        if (createdid.ad == adminid && createdid.apass == adpassword) {
+
+
+            // adlogdiv.style.display = "none";
+            // createusdiv.style.display = 'block';
+            // uslogdiv.style.display = 'block';
+            createUser();
+            createElec();
+        }
+    }
+    function createElec(){
+        var crelec=document.getElementById('crelec');
+        var ehd=document.createElement('h1')
+        ehd.appendChild(document.createTextNode('Create Election:'))
+        var elb=document.createElement('label')
+        elb.appendChild(document.createTextNode('Elec date:'))
+        var dip=document.createElement('input')
+        dip.setAttribute('type','date')
+        dip.setAttribute('id','dt')
+        var tlb=document.createElement('label')
+        tlb.appendChild(document.createTextNode('StartTime:'))
+        var tmip=document.createElement('input')
+        tmip.setAttribute('type','time')
+        tmip.setAttribute('id','sttime')
+        var tlb2=document.createElement('label')
+        tlb2.appendChild(document.createTextNode('EndTime:'))
+        var tmip2=document.createElement('input')
+        tmip2.setAttribute('type','time')
+        tmip2.setAttribute('id','edtime')
+        var elecbut=document.createElement('button')
+        elecbut.innerHTML='Add'
+        elecbut.setAttribute('onclick','addElec()')
+
+        crelec.appendChild(ehd)
+        crelec.appendChild(elb)
+        crelec.appendChild(dip)
+        crelec.appendChild(tlb)
+        crelec.appendChild(tmip)
+        crelec.appendChild(tlb2)
+        crelec.appendChild(tmip2)
+        crelec.appendChild(elecbut)
+        }
+        
+function createUser() {
+
+        //    var usid = document.getElementById('usid').value;
+        //     var uspd = document.getElementById('uspd').value;
+        //     var usbt = document.getElementById('usbt').value;
+        var brk = document.createElement('br')
+        var createus = document.getElementById('createus')
+        var ushd = document.createElement('h1')
+        ushd.appendChild(document.createTextNode("Create user"))
+        var uslb = document.createElement('label')
+        uslb.appendChild(document.createTextNode("UserId:"))
+        var uscip = document.createElement('input')
+        uscip.setAttribute('type', 'text')
+        uscip.setAttribute('id', 'usid')
+        var uslb2 = document.createElement('label')
+        uslb2.appendChild(document.createTextNode("Password:"))
+        var uscip2 = document.createElement('input')
+        uscip2.setAttribute('type', 'text')
+        uscip2.setAttribute('id', 'uspd')
+        var uslb3 = document.createElement('label')
+        uslb3.appendChild(document.createTextNode("Booth:"))
+        var sel = document.createElement('select')
+        sel.setAttribute('id', 'usbt')
+        var dlb=document.createElement('label')
+        dlb.appendChild(document.createTextNode("Date:"))
+        var dat=document.createElement('select')
+        // dat.setAttribute("type",'date')
+        dat.setAttribute('id','date')
+        // dat.setAttribute('style','width:350px')
+        // var tlb=document.createElement('label')
+        // tlb.appendChild(document.createTextNode('StartTime:'))
+        // var tm=document.createElement('select')
+        // tm.setAttribute('type','time')
+        // tm.setAttribute('id','sttime')
+        // var tlb2=document.createElement('label')
+        // tlb2.appendChild(document.createTextNode('EndTime:'))
+        // var tm2=document.createElement('input')
+        // tm2.setAttribute('type','time')
+        // tm2.setAttribute('id','edtime')
+
+        var uscbut=document.createElement('button')
+        uscbut.innerHTML="Submit"
+        uscbut.setAttribute('onclick','registerUser()')
+
+
+        // ushd.appendChild(brk)
+        createus.appendChild(ushd)
+        // createus.appendChild(brk)
+        createus.appendChild(uslb)
+        createus.appendChild(uscip)
+        // createus.appendChild(brk)
+        createus.appendChild(uslb2)
+        createus.appendChild(uscip2)
+        // createus.appendChild(brk)
+        createus.appendChild(uslb3)
+        createus.appendChild(sel)
+        createus.appendChild(dlb)
+        createus.appendChild(dat)
+        // createus.appendChild(tlb)
+        // createus.appendChild(tm)
+        // createus.appendChild(tlb2)
+        // createus.appendChild(tm2)
+
+        createus.appendChild(uscbut)
+
+        // createus.appendChild(brk)
+        // createusdiv.style.display = 'none'
+
+        // adlogdiv.style.display = 'block'
+        // uslogdiv.style.display = 'block'
+
+    }
+    var elecdtarr=[];
+    var elecdtarr2=[];
+    function addElec(){
+        var elecdtobj={}
+            var dt=document.getElementById('dt').value;
+            var sttime=document.getElementById('sttime').value;
+            var edtime=document.getElementById('edtime').value;
+            
+            elecdtobj.dt=dt;
+            elecdtobj.sttime=sttime;
+            elecdtobj.edtime=edtime;
+            elecdtarr.push(elecdtobj);
+            for (f=0;f<elecdtarr.length;f++){
+                var dtsel=document.getElementById('date')
+                var dtoption=document.createElement('option')
+                var elecdtarrval=elecdtarr[f].dt
+                dtoption.setAttribute('value',elecdtarrval)
+                dtoption.appendChild(document.createTextNode(elecdtarrval));
+            }
+            dtsel.appendChild(dtoption)
+            
+        }
+    function addbooth() {
+         var obj1 = {}
+var booth = document.getElementById('bt').value;
+        arr.push(booth)
+        for (i = 0; i < arr.length; i++) {
+            // var sb=sbooth
+            // console.log(sb)
+            obj1.boot = arr[i];
+        }
+        arr2.push(obj1)
+        console.log(arr2)
+        for (i = 0; i < arr2.length; i++) {
+            var sel2 = document.getElementById('usbt')
+            var option = document.createElement('option')
+            var arrval = arr2[i].boot
+            option.setAttribute('value', arrval)
+            option.appendChild(document.createTextNode(arrval));
+        }
+        sel2.appendChild(option);
+        // var selectb = document.getElementById('usbt')
+        // c3label.appendChild(cselect)
+        // cuser.appendChild(c3label)
+    }
+    var pararr = [];
+    var pararr2 = [];
+    function addparties() {
+
+        var parobj = {}
+        var par = document.getElementById('par').value;
+        pararr.push(par)
+        for (p = 0; p < pararr.length; p++) {
+            parobj.party = pararr[p];
+        }
+        pararr2.push(parobj)
+        console.log(pararr2)
+    }
+    // function addelec(){
+    //     var elecobj={}
+    //     var 
+    // }
+    var data = []
+    function registerUser(){
+        var usdet={}
+        var usid = document.getElementById('usid').value;
+        var uspd = document.getElementById('uspd').value;
+        var usbt = document.getElementById('usbt').value;
+        var usdate=document.getElementById('date').value;
+        var ussttime=document.getElementById('sttime').value;
+        var usedtime=document.getElementById('edtime').value;
+        usdet.usid=usid
+        usdet.uspd=uspd
+        usdet.usbt=usbt
+        usdet.usdate=usdate
+        usdet.ussttime=ussttime
+        usdet.usedtime=usedtime
+        data.push(usdet)
+        console.log(data)
+
+    }
+    function timeCount(){
+        
+    }
+    
+    
+    function userLogin() {
+        
+        //Saved details
+        var pan = document.getElementById('panid').value;
+        var password = document.getElementById('pass').value;
+        
+        var para = document.getElementById('para');
+        var para1 = document.getElementById('para1');
+        // var but = document.getElementById('but')
+        var form = document.getElementById('form1')
+        var today=new Date();
+        var day=today.getDate();
+        var month=today.getMonth()+1;
+        var year=today.getFullYear();
+
+        var hour=today.getHours();
+        if(hour<10)hour='0'+hour;
+        var minute=today.getMinutes();
+        if(minute<10)minute="0"+minute;
+        
+        // setTimeout("timeCount()",1000);
+        var curdate= day+'-'+month+'-'+year;
+        var curtime= hour+':'+minute;
+        console.log(curdate)
+        
+        
+        //console.log(data[i])
+        for (let i = 0; i < data.length; i++) {
+            
+            // for (let j = 0; j < data[i].dt.length; j++) {
+            if ((data[i].usid).includes(pan) && (data[i].uspd).includes(password) ) {
+                console.log(data[i].usbt)
+                console.log(data[i].usdate)
+                console.log(data[i].ussttime)
+                console.log(data[i].usedtime)
+                console.log(day)
+                console.log(month)
+                console.log(year)
+
+                var day2=day
+                var month2=month
+                var year2=year
+               
+                
+                var curdate2= year2+'-'+month2+'-'+day2;
+        var curtime2= hour+':'+minute;
+        console.log(curdate2)
+
+                var ubt=data[i].usbt
+                var udate=data[i].usdate
+                var usttime=data[i].ussttime
+                var uedtime=data[i].usedtime
+                if(curdate==udate && curtime >=usttime && curtime < uedtime){
+                
+                console.log("yes")
+                // for (let j=0;j<)
+                // if(dt)
+                // var but = document.getElementById('but')
+                
+                 but.style.display = "block"
+                var h1 = document.createElement('h1')
+                h1.appendChild(document.createTextNode("Booth:" + ubt))
+                for (k = 0; k < pararr2.length; k++) {
+                    // var but = document.getElementById('but')
+                    var parval = pararr2[k].party
+                    console.log(parval)
+                    var rd = document.createElement('input')
+                    rd.setAttribute('type', 'radio')
+                    rd.setAttribute('name', 'part')
+                    rd.setAttribute('value', parval)
+                    rd.appendChild(document.createTextNode(parval));
+                }
+                // h1.appendChild(brk)
+                but.appendChild(h1) 
+                but.appendChild(rd)
+                // bt1.style.display = "block";
+                // bt2.style.display = 'none';
+                // bt3.style.display = 'none';
+                // adlogdiv.style.display = "none";
+                // createusdiv.style.display = 'none';
+                // uslogdiv.style.display = 'none';
+            }
+            else{
+                console.log("no")
+            }
+
+            }
+            
+
+
+            // else {
+            //     para.innerHTML = "Invalid,Please check the id or password"
+            // }
+
+        }
+    }
+    // function but_ton() {
+    //     var but = document.getElementById('but')
+    //     var h1 = document.createElement('h1')
+    //     h1.appendChild(document.createTextNode(usbt))
+    //     but.appendChild(h1)
+    // }
+
+    // var DMK = 0;
+    // var ADMK = 0;
+    // var BJP = 0;
+
+    // function elecFun1() {
+
+
+    //     var radk1 = document.getElementsByName('k1');
+    //     for (j = 0; j < radk1.length; j++) {
+    //         if (radk1[j].checked) {
+    //             var dk1 = radk1[j].value;
+    //             if (dk1 == "DMK") {
+    //                 DMK++;
+    //                 form1.reset();
+    //                 console.log(DMK);
+    //                 bt1.style.display = "none";
+    //                 adlogdiv.style.display = "block";
+    //                 uslogdiv.style.display = 'block';
+    //             }
+    //         }
+    //         if (radk1[j].checked) {
+
+    //             var ak1 = radk1[j].value;
+    //             if (ak1 == "ADMK") {
+    //                 ADMK++;
+    //                 form1.reset();
+    //                 bt1.style.display = "none";
+    //                 adlogdiv.style.display = "block";
+    //                 uslogdiv.style.display = 'block';
+    //             }
+    //         }
+    //         if (radk1[j].checked) {
+    //             var bp1 = radk1[j].value;
+    //             if (bp1 == "BJP") {
+    //                 BJP++;
+    //                 form1.reset();
+    //                 bt1.style.display = "none";
+    //                 adlogdiv.style.display = "block";
+    //                 uslogdiv.style.display = 'block';
+    //             }
+    //         }
+    //     }
+    //     // }
+    //     // function elecFun2() {
+    //     var radk2 = document.getElementsByName('v1');
+    //     for (k = 0; k < radk2.length; k++) {
+    //         if (radk2[k].checked) {
+    //             var dk2 = radk2[k].value;
+    //             if (dk2 == "DMK") {
+    //                 DMK++;
+    //                 form2.reset();
+    //                 console.log(DMK)
+    //                 bt2.style.display = "none";
+    //                 adlogdiv.style.display = "block";
+    //                 uslogdiv.style.display = 'block';
+    //             }
+    //         }
+    //         if (radk2[k].checked) {
+
+    //             var ak2 = radk2[k].value;
+    //             if (ak2 == "ADMK") {
+    //                 ADMK++;
+    //                 form2.reset();
+    //                 bt2.style.display = "none";
+    //                 adlogdiv.style.display = "block";
+    //                 uslogdiv.style.display = 'block';
+    //             }
+    //         }
+    //         if (radk2[k].checked) {
+    //             var bp2 = radk2[k].value;
+    //             if (bp2 == "BJP") {
+    //                 BJP++;
+    //                 form2.reset();
+    //                 bt2.style.display = "none";
+    //                 adlogdiv.style.display = "block";
+    //                 uslogdiv.style.display = 'block';
+    //             }
+    //         }
+
+    //     }
+    //     // }
+    //     // function elecFun3() {
+    //     var radk3 = document.getElementsByName('kr1');
+    //     for (l = 0; l < radk3.length; l++) {
+    //         if (radk3[l].checked) {
+    //             var dk3 = radk3[l].value;
+    //             if (dk3 == "DMK") {
+    //                 DMK++;
+    //                 form3.reset();
+    //                 bt3.style.display = "none";
+    //                 adlogdiv.style.display = "block";
+    //                 uslogdiv.style.display = 'block';
+    //             }
+    //         }
+    //         if (radk3[l].checked) {
+
+    //             var ak3 = radk3[l].value;
+    //             if (ak3 == "ADMK") {
+    //                 ADMK++;
+    //                 form3.reset();
+    //                 bt3.style.display = "none";
+    //                 adlogdiv.style.display = "block";
+    //                 uslogdiv.style.display = 'block';
+    //             }
+    //         }
+    //         if (radk3[l].checked) {
+    //             var bp3 = radk3[l].value;
+    //             if (bp3 == "BJP") {
+    //                 BJP++;
+    //                 form3.reset();
+    //                 bt3.style.display = "none";
+    //                 adlogdiv.style.display = "block";
+    //                 uslogdiv.style.display = 'block';
+    //             }
+    //         }
+
+    //     }
+    //     // }
+    //     console.log(DMK);
+    //     document.getElementById('res1').innerHTML = "Total votes for DMK:" + DMK;
+    //     document.getElementById('res2').innerHTML = "Total votes for ADMK:" + ADMK;
+    //     document.getElementById('res3').innerHTML = "Total votes for BJP:" + BJP;
+    // }
+    
+
+    // function addparties2() {
+
+    //     for (k = 0; k < pararr2.length; k++) {
+    //         var but = document.getElementById('but')
+
+
+    //     }
+    // }
+
+</script>
+
+</html>
